@@ -3,6 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 region_population_mapping = dict()
+region_do_population_mapping = dict()
+region_date_mapping = dict()
 
 # 사고 지역과 날짜 넣으면 해당 지역의 날짜의 인구를 반환해주는 함수
 def get_region_population(accident_region_name, accident_year, accident_month):
@@ -20,7 +22,6 @@ def get_region_population(accident_region_name, accident_year, accident_month):
     # 사고 지역 이름
     if accident_popul_key not in region_population_mapping:
         # 사고 동(법정명)에서 인구 동(행정동명) 뽑기
-        # population_regions = region_mapping_df.loc[region_mapping_df['동리명'] == accident_popul_key]['읍면동명'].values
         population_regions = region_mapping_df.loc[region_mapping_df['동리명'] == accident_region_name]['읍면동명'].values
           
         for region in population_regions:
@@ -39,6 +40,30 @@ def get_region_population(accident_region_name, accident_year, accident_month):
     return popluation
 
 
+
+# 사고 지역(도)과 날짜 넣으면 해당 지역의 날짜의 인구를 반환해주는 함수
+def get_do_region_population(accident_do_name, accident_year, accident_month):
+    # print(accident_do_name, accident_year, accident_month)
+    # 분기 구하기
+    quarter = int((accident_month - 1) / 3 + 1)
+    accident_quarter = str(accident_year)+ ' ' + str(quarter) + '/4'
+
+    accident_popul_key = accident_do_name + accident_quarter
+
+    # 사고 지역 이름
+    if accident_popul_key not in region_do_population_mapping:
+        popluation = int(population_df.loc[(population_df['구'] == accident_do_name) & (population_df['행정동명'] == '소계')][accident_quarter].values[0])
+    
+        region_do_population_mapping[accident_popul_key] = popluation
+    else:
+        popluation = region_do_population_mapping[accident_popul_key]
+
+    # 지역별 평균 인구도 구할거 여기서
+    # region_mapping_df +=
+        
+    return popluation
+
+
 # 인구 행정동명과 행정동명 <-> 법정동명 매칭 테이블상의 행정동명과 다른 경우를 맞춰주기 위한 preprocessing
 def population_region_name_fit():
   for i in range(len(population_df)):
@@ -47,6 +72,19 @@ def population_region_name_fit():
       if len(change_population_region_name) > 0:
           population_df.iloc[i]['행정동명'] = change_population_region_name[0]
 
+# 사고 일자 지역별 사고수
+def get_accident_date(accident_region_name, accident_year, accident_month, accident_number):
+
+    # 분기 구하기
+    quarter = int((accident_month - 1) / 3 + 1)
+    accident_quarter = str(accident_year)+ ' ' + str(quarter) + '/4'
+    accident_popul_key = accident_region_name + accident_quarter
+
+    # 사고 지역 이름
+    if accident_popul_key not in region_date_mapping:
+        region_date_mapping[accident_popul_key] = accident_number
+    else:
+        region_date_mapping[accident_popul_key] += accident_number
 
 # def 
 # Read csv files
@@ -101,7 +139,7 @@ print(region_mapping_df.describe())
 # Feature engineering
 
 
-# Cleaning dirty data(빈 값 4개있었음)
+# Cleaning dirty data
 print(len(accident_df))
 accident_df.dropna(axis=0, how='any', inplace=True)
 print(len(accident_df))
@@ -125,16 +163,16 @@ accident_df['발생_일'] = accident_df['발생일'].dt.day
 accident_df['발생_요일'] = accident_df['발생일'].dt.day_name()
 
 
-# 인구 행정동명 검색되게 맞춰주기
+# 행정동명 맞춰주기
 population_region_name_fit()
 
 # Derive New Features by Aggregating Over Two Different Entities
 
 accident_df['법정동명_인구'] = np.nan
+accident_df['구_인구'] = np.nan
 
-print(accident_df.loc[(accident_df['발생일'] == '2019-12-31') & (accident_df['법정동명'] == '구로동')]['사고건수'])
 
-
+# 모든 동명 확인
 regions = region_mapping_df.drop_duplicates('동리명')['동리명'].values
 
 # 시간 0~23 List
@@ -145,10 +183,9 @@ day_list = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 
 # 월 List
 month_list = ['month_' + str(i) for i in range(1, 13) ]
 
-# 시간 요일 월 리스트 합친 리스트 추가
 total_list = hour_list + day_list + month_list
+print(total_list)
 
-# 모델 돌릴 dataframe
 model_df = pd.DataFrame(columns = total_list, index=regions)
 model_df.fillna(0, inplace=True)
 print(model_df)
@@ -158,6 +195,7 @@ print(accident_df.head(10))
 for i in range(len(accident_df)):
     # print(accident_df.loc[i])
     accident_df.iat[i, 14] = get_region_population(accident_df.iat[i, 4], accident_df.iat[i, 10], accident_df.iat[i, 11])
+    accident_df.iat[i, 15] = get_do_region_population(accident_df.iat[i,3], accident_df.iat[i, 10], accident_df.iat[i, 11])
 
 # 인구 0인 오류 동 찾음 (항동)
 accident_df['법정동명_인구'].replace(0, np.NaN, inplace=True)
@@ -165,13 +203,21 @@ accident_df['법정동명_인구'].replace(0, np.NaN, inplace=True)
 # Drop useless axis
 accident_df.dropna(axis=0, how='any',inplace=True)
 
-
+print('==============================================')
+print(accident_df.loc[accident_df['법정동명'] == '오쇠동'])
+print('==============================================')
 # 모델 돌릴 dataset 만듬
 for i in range(len(accident_df)):
     # accident_score = accident_df.iat[i, 6] * 10 + accident_df.iat[i, 7] * 5 + accident_df.iat[i, 8] * 3 + accident_df.iat[i, 9] * 1
     accident_score = ((accident_df.iat[i, 6] * 10 + accident_df.iat[i, 7] * 5 + accident_df.iat[i, 8] * 3 + accident_df.iat[i, 9] * 1) * 1000) / accident_df.iat[i, 14]
+    # 동별 위험도 넣어주기
     model_df.at[accident_df.iat[i, 4], accident_df.iat[i, 13]] += accident_score
     model_df.at[accident_df.iat[i, 4], 'hour_' + str(accident_df.iat[i, 1])] += accident_score
     model_df.at[accident_df.iat[i, 4], 'month_' + str(accident_df.iat[i, 11])] += accident_score
+
+    # 도별 위험도 넣어주기
+    model_df.at[accident_df.iat[i, 3], accident_df.iat[i, 13]] += accident_score
+    model_df.at[accident_df.iat[i, 3], 'hour_' + str(accident_df.iat[i, 1])] += accident_score
+    model_df.at[accident_df.iat[i, 3], 'month_' + str(accident_df.iat[i, 11])] += accident_score
 
 print(model_df.head(100))
