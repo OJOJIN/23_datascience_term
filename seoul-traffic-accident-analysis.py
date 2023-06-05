@@ -466,7 +466,7 @@ decision_df["발생_요일"] = day_label.transform(decision_df["발생_요일"])
 decision_df = decision_df.astype("category")
 
 
-decision_df
+print(decision_df)
 
 # Find best param
 # 가장 좋은 RandomForest에 들어갈 Parameter를 찾음
@@ -479,8 +479,8 @@ X = decision_df.iloc[:, :4]  # feature
 y = decision_df.iloc[:, -1]  # Target variable
 
 params = {
-    "n_estimators": [10, 100],
-    "max_depth": [7, 10, 13, 14, 16],
+    "n_estimators": [10],
+    "max_depth": [7, 10, 13, 14],
     "criterion": ["gini", "entropy"],
     "bootstrap": [True, False],
 }
@@ -629,4 +629,100 @@ for i in range(len(accident_df)):
         gu_accident_score * 12
     )
 
-model_df
+print(model_df)
+
+# 구 정보담은 dataframe
+model_gu = model_df.iloc[464:, :]
+print(model_gu)
+
+# 그래프 찍기
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 데이터 준비
+
+x = [
+    "Gangnam-gu",
+    "Gangdong-gu",
+    "Gangbuk-gu",
+    "Gangseo-gu",
+    "Gwanak-gu",
+    "Gwangjin-gu",
+    "Guro-gu",
+    "Geumcheon-gu",
+    "Nowon-gu",
+    "Dobong-gu",
+    "Dongdaemun-gu",
+    "Dongjak-gu",
+    "Mapo-gu",
+    "Seodaemun-gu",
+    "Seocho-gu",
+    "Seongdong-gu",
+    "Seongbuk-gu",
+    "Songpa-gu",
+    "Yangcheon-gu",
+    "Yeongdeungpo-gu",
+    "Yongsan-gu",
+    "Eunpyeong-gu",
+    "Jongno-gu",
+    "Jung-gu",
+    "Jungnang-gu",
+]
+
+"""
+x = ['강남구', '강동구', '강북구', '강서구', '관악구', '광진구', '구로구', '금천구', '노원구', '도봉구', '동대문구', '동작구', '마포구',
+     '서대문구', '서초구', '성동구', '성북구', '송파구', '양천구', '영등포구', '용산구', '은평구', '종로구', '중구', '중랑구']
+"""
+
+day = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+for i in range(24):
+    y = model_gu.iloc[:, i]
+    plt.figure(figsize=(10, 4))
+
+    colors = sns.color_palette("hls", len(x))
+
+    # 막대 그래프 그리기
+    plt.bar(x, y, color=colors)
+
+    # 그래프 제목과 축 레이블 설정
+    plt.xticks(rotation=70)
+    plt.title(f"Risk of hour_{str(i)}")
+    plt.xlabel("Gu")
+    plt.ylabel("Risk")
+
+
+for i in range(7):
+    y = model_gu.iloc[:, i + 24]
+    plt.figure(figsize=(10, 4))
+
+    colors = sns.color_palette("hls", len(x))
+
+    # 막대 그래프 그리기
+    plt.bar(x, y, color=colors)
+
+    # 그래프 제목과 축 레이블 설정
+    plt.xticks(rotation=70)
+    plt.title("Risk of  {}".format(day[i]))
+    plt.xlabel("Gu")
+    plt.ylabel("Risk")
+
+for i in range(12):
+    y = model_gu.iloc[:, i + 31]
+    plt.figure(figsize=(10, 4))
+
+    colors = sns.color_palette("hls", len(x))
+
+    # 막대 그래프 그리기
+    plt.bar(x, y, color=colors)
+
+    # 그래프 제목과 축 레이블 설정
+    plt.xticks(rotation=70)
+    plt.title(f"Risk of month_{str(i+1)}")
+    plt.xlabel("Gu")
+    plt.ylabel("Risk")
+
+
+# 그래프 출력
+plt.show()
