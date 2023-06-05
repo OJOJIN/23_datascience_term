@@ -8,18 +8,18 @@ region_do_population_mapping = dict()
 # def
 # Read csv files
 # cat accident data
-accident_df = pd.read_csv("accident.csv", sep=",", encoding="cp949")
+accident_df = pd.read_csv("dataset/accident.csv", sep=",", encoding="cp949")
 
 # population accident data
-population_df = pd.read_csv("population.csv", sep=",", encoding_errors="ignore")
+population_df = pd.read_csv("dataset/population.csv", sep=",", encoding_errors="ignore")
 
 # car accident data
 population_region_name_change_df = pd.read_csv(
-    "population_region_name_change.csv", sep=",", encoding="cp949"
+    "dataset/population_region_name_change.csv", sep=",", encoding="cp949"
 )
 
 # Region mapping data
-region_mapping_df = pd.read_csv("region_mapping.csv", sep=",", encoding="cp949")
+region_mapping_df = pd.read_csv("dataset/region_mapping.csv", sep=",", encoding="cp949")
 
 # Make ['발생일'] type to datetime
 accident_df["발생일"] = pd.to_datetime(accident_df["발생일"])
