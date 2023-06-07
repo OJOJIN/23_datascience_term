@@ -1,5 +1,8 @@
-# 23_datascience_term
+# seoul-traffic-accidents-analysis
 
 # Contributor
 김세중 노현지 양다인 오진영
-<img width="2316" alt="architecture" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/99639919/51459003-c556-4a1d-9d69-b29cf5558e62">
+
+# Architecture
+<img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/99639919/0f9696ff-5fa1-4a5e-b4d6-5c27dbd449c9">
+
