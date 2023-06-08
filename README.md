@@ -36,3 +36,41 @@ Columns
 - 중상자수
 - 경상자수
 - 부상신고자수
+
+Population.csv
+<img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/9bdd9c1d-d51e-422b-802c-afffbd058e2d">
+>450 rows x 14 columns
+Columns
+- 동별(1)
+- 동별(2)
+- 동별(3)
+- 2017 1/4
+- 2017 2/4
+- 2017 3/4
+- 2017 4/4
+- 2018 1/4
+- 2018 2/4
+- 2018 3/4
+- 2018 4/4
+- 2019 1/4
+- 2019 2/4
+- 2019 3/4
+- 2019 4/4
+
+Region_mapping.csv
+<img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/e036e315-45ba-431c-af1c-8c0b22f33d6c">
+>765 rows x 7 columns
+Columns
+- 행정동코드
+- 시도명
+- 시군구명
+- 읍면동명
+- 법정동코드
+- 동리명
+- 생성일자
+<img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/69627daa-f5b9-4fc1-8132-80cfb4c0311b">
+Population_region_name_change.csv
+
+>180 rows x 2 columns
+- population_regin
+- mapping_region
