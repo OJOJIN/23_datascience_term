@@ -58,7 +58,7 @@ Columns
 - 2019 4/4
 
 Region_mapping.csv
-<img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/e036e315-45ba-431c-af1c-8c0b22f33d6c">
+<img width="a" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/e036e315-45ba-431c-af1c-8c0b22f33d6c">
 >765 rows x 7 columns
 Columns
 - 행정동코드
@@ -68,7 +68,7 @@ Columns
 - 법정동코드
 - 동리명
 - 생성일자
-<img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/69627daa-f5b9-4fc1-8132-80cfb4c0311b">
+<img width="a" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/69627daa-f5b9-4fc1-8132-80cfb4c0311b">
 Population_region_name_change.csv
 
 >180 rows x 2 columns
