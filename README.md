@@ -22,7 +22,7 @@ However, Korea still has a high risk, ranking 27th in the number of traffic acci
 Therefore, our team aimed to reduce the risk of traffic accidents by creating a model that predicts the risk of traffic accidents in certain areas of Seoul to help people go out at safer times and to strengthen crackdowns and guide them to be alert during high-risk times
 
 ## 2. Data Inspection
-###Accident.csv
+### Accident.csv
 
 <img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/f7b8be1a-5ebe-4ad7-94de-05f2d3ca3d0e">
 >114442 rows x 10 columns
@@ -38,7 +38,7 @@ Columns
 - 경상자수
 - 부상신고자수
 
-###Population.csv
+### Population.csv
 
 <img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/9bdd9c1d-d51e-422b-802c-afffbd058e2d">
 >450 rows x 14 columns
@@ -59,7 +59,7 @@ Columns
 - 2019 3/4
 - 2019 4/4
 
-###Region_mapping.csv
+### Region_mapping.csv
 
 <img width="a" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/e036e315-45ba-431c-af1c-8c0b22f33d6c">
 >765 rows x 7 columns
@@ -72,7 +72,7 @@ Columns
 - 동리명
 - 생성일자
 
-###Population_region_name_change.csv
+### Population_region_name_change.csv
 
 <img width="a" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/69627daa-f5b9-4fc1-8132-80cfb4c0311b">
 >180 rows x 2 columns
