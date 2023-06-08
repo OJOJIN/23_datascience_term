@@ -82,3 +82,16 @@ Columns
 > 180 rows x 2 columns
 - population_regin
 - mapping_region
+
+## 3. Data Preprocessing
+- Cleaning dirty data
+- Feature creation derived from '발생일'
+- Derive New '인구' features by aggregatingg over two entities
+- Featrue creation '위험도' columns in accident_df
+- '법정동명', '발생_요일' with LabelEncoder
+
+## 4. Clustering & evaluation
+
+## 5. Random Forest modeling & evaluation
+
+## 6. Decision Tree classification & eveluation
