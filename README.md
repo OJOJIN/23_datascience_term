@@ -25,7 +25,8 @@ Therefore, our team aimed to reduce the risk of traffic accidents by creating a 
 ### Accident.csv
 
 <img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/f7b8be1a-5ebe-4ad7-94de-05f2d3ca3d0e">
->114442 rows x 10 columns
+
+> 114442 rows x 10 columns
 Columns
 - 발생일
 - 발생시간
@@ -41,7 +42,8 @@ Columns
 ### Population.csv
 
 <img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/9bdd9c1d-d51e-422b-802c-afffbd058e2d">
->450 rows x 14 columns
+
+> 450 rows x 14 columns
 Columns
 - 동별(1)
 - 동별(2)
@@ -62,7 +64,8 @@ Columns
 ### Region_mapping.csv
 
 <img width="a" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/e036e315-45ba-431c-af1c-8c0b22f33d6c">
->765 rows x 7 columns
+
+> 765 rows x 7 columns
 Columns
 - 행정동코드
 - 시도명
@@ -75,6 +78,7 @@ Columns
 ### Population_region_name_change.csv
 
 <img width="a" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/69627daa-f5b9-4fc1-8132-80cfb4c0311b">
->180 rows x 2 columns
+
+> 180 rows x 2 columns
 - population_regin
 - mapping_region
