@@ -21,6 +21,8 @@ However, Korea still has a high risk, ranking 27th in the number of traffic acci
 
 Therefore, our team aimed to reduce the risk of traffic accidents by creating a model that predicts the risk of traffic accidents in certain areas of Seoul to help people go out at safer times and to strengthen crackdowns and guide them to be alert during high-risk times
 
+
+
 ## 2. Data Inspection
 ### Accident.csv
 
@@ -83,6 +85,8 @@ Columns
 - population_regin
 - mapping_region
 
+
+
 ## 3. Data Preprocessing
 - Cleaning dirty data
 - Feature creation derived from '발생일'
@@ -90,17 +94,22 @@ Columns
 - Featrue creation '위험도' columns in accident_df
 - '법정동명', '발생_요일' with LabelEncoder
 
+
+
 ## 4. Clustering & evaluation
- <img align="right" width="50%" height="50%" src='https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/de35dfe1-24c1-4237-9313-fd47cae635c4'>
- <img align="left" width="50%" height="50%" src='https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/360841e7-85fa-468c-b289-6e0109c7c779'>
- <br>
- 
- 
 - Create a new feature related to multiple columns using k-means clustering.
 - Perform outliner detection to turn the unbalanced distribution of categories A through D into a balanced one.
 
+
+
 ## 5. Random Forest modeling & evaluation
-- Create a predictive model using random forest classification.
+- Create a predictive model using RandomForest Algorithm.
 - Use GridSearchCV to find the most appropriate hyperparameters.
 - Using k-fold croos validation for testing. The average score was 57%.
+
+
+
 ## 6. Decision Tree classification & eveluation
+- The model was trained based on the clustering of the target features.
+- Create a predictive model using DesicionTree Classification.
+- Using k-fold croos validation for testing. The average score was 65%.
