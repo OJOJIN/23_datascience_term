@@ -100,8 +100,6 @@ Columns
 - Create a new feature related to multiple columns using k-means clustering.
 - Perform outliner detection to turn the unbalanced distribution of categories A through D into a balanced one.
 
-
-
 ## 5. Random Forest modeling & evaluation
 - Create a predictive model using RandomForest Algorithm.
 - Use GridSearchCV to find the most appropriate hyperparameters.
@@ -120,3 +118,10 @@ Columns
 The Road Traffic Authority(도로교통공단) has reported that traffic fatality rates are three to four times higher on foggy days.
 However, our team's data analysis was inaccurate because it only considered specific dates and locations. It didn't take into account the impact of weather conditions on traffic accidents.
 It only relied on inputs such as time, day, and month to predict the risk level. As weather conditions play an important role in the incidence of traffic accidents, it is necessary to consider external factors as well.
+
+
+# What you have learned doing the project
+- During the data modeling and analysis process, the team members gained valuable insights and experiences. We recognized the importance of finding optimal parameters for accurate modeling and the challenges involved in achieving this.
+- Preprocessing and analyzing diverse datasets were seen as novel and rewarding tasks, highlighting the significance of data exploration and objective review.
+- We learned the difficulty of data preprocessing, especially in matching values between different files, which plays an important role in achieving better results in data modeling.
+- The team's collective experience has taught them the importance of parameter optimization, thorough data exploration, and effective preprocessing techniques in data science.
