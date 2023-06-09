@@ -7,9 +7,9 @@
 <img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/99639919/0f9696ff-5fa1-4a5e-b4d6-5c27dbd449c9">
 
 
-# End to End process
+# 1. End to End process
 
-## 1. Business objective
+## 1.1 Business objective
 
 <img width="163" alt="image" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/86943499/f51574ae-4167-460d-9e36-d48d0975e0b6">
 <img width="305" alt="image" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/86943499/656c2527-3b09-4525-a484-110e1c4a8cd3">
@@ -23,7 +23,7 @@ Therefore, our team aimed to reduce the risk of traffic accidents by creating a 
 
 
 
-## 2. Data Inspection
+## 1.2 Data Inspection
 ### Accident.csv
 
 <img width="896" alt="a" src="https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/f7b8be1a-5ebe-4ad7-94de-05f2d3ca3d0e">
@@ -87,7 +87,7 @@ Columns
 
 
 
-## 3. Data Preprocessing
+## 1.3 Data Preprocessing
 - Cleaning dirty data
 - Feature creation derived from '발생일'
 - Derive New '인구' features by aggregatingg over two entities
@@ -96,31 +96,31 @@ Columns
 
 
 
-## 4. Clustering & evaluation
+## 1.4 Clustering & evaluation
 - Create a new feature related to multiple columns using k-means clustering.
 - Perform outliner detection to turn the unbalanced distribution of categories A through D into a balanced one.
 
-## 5. Random Forest modeling & evaluation
+## 1.5 Random Forest modeling & evaluation
 - Create a predictive model using RandomForest Algorithm.
 - Use GridSearchCV to find the most appropriate hyperparameters.
 - Using k-fold croos validation for testing. The average score was 57%.
 
 
 
-## 6. Decision Tree classification & eveluation
+## 1.6 Decision Tree classification & eveluation
 - The model was trained based on the clustering of the target features.
 - Create a predictive model using DesicionTree Classification.
 - Using k-fold croos validation for testing. The average score was 65%.
 
 
 
-# External factors impact
+# 2. External factors impact
 The Road Traffic Authority(도로교통공단) has reported that traffic fatality rates are three to four times higher on foggy days.
 However, our team's data analysis was inaccurate because it only considered specific dates and locations. It didn't take into account the impact of weather conditions on traffic accidents.
 It only relied on inputs such as time, day, and month to predict the risk level. As weather conditions play an important role in the incidence of traffic accidents, it is necessary to consider external factors as well.
 
 
-# What you have learned doing the project
+# 3. What you have learned doing the project
 - During the data modeling and analysis process, the team members gained valuable insights and experiences. We recognized the importance of finding optimal parameters for accurate modeling and the challenges involved in achieving this.
 - Preprocessing and analyzing diverse datasets were seen as novel and rewarding tasks, highlighting the significance of data exploration and objective review.
 - We learned the difficulty of data preprocessing, especially in matching values between different files, which plays an important role in achieving better results in data modeling.
