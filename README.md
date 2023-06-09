@@ -91,8 +91,10 @@ Columns
 - '법정동명', '발생_요일' with LabelEncoder
 
 ## 4. Clustering & evaluation
-<img src='https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/de35dfe1-24c1-4237-9313-fd47cae635c4'> <img src='https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/360841e7-85fa-468c-b289-6e0109c7c779'>
-
+<div>
+  <img src='https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/de35dfe1-24c1-4237-9313-fd47cae635c4'>
+  <img src='https://github.com/OJOJIN/seoul-traffic-accidents-analysis/assets/82256962/360841e7-85fa-468c-b289-6e0109c7c779'>
+</div
 - Create a new feature related to multiple columns using k-means clustering.
 - Perform outliner detection to turn the unbalanced distribution of categories A through D into a balanced one.
 
