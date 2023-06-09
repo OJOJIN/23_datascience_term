@@ -116,7 +116,7 @@ Columns
 
 
 
-# Learn External factors that can influence the analysis
+# External factors impact
 The Road Traffic Authority(도로교통공단) has reported that traffic fatality rates are three to four times higher on foggy days.
 However, our team's data analysis was inaccurate because it only considered specific dates and locations. It didn't take into account the impact of weather conditions on traffic accidents.
 It only relied on inputs such as time, day, and month to predict the risk level. As weather conditions play an important role in the incidence of traffic accidents, it is necessary to consider external factors as well.
